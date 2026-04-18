@@ -16,20 +16,29 @@ const toursData = [
 // Reusable card component
 const TourCard = ({ tour }) => {
   return (
-    <div className={`relative group overflow-hidden rounded-xl ${tour.height} w-full shadow-lg transition-transform duration-300 hover:scale-105`}>
+    <div className={`relative group overflow-hidden rounded-3xl ${tour.height} w-full shadow-xl transition-transform duration-500 hover:-translate-y-1 hover:shadow-2xl`}>
       <img
         src={tour.image}
         alt={tour.title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
-      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-colors" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-95 group-hover:opacity-90 transition-all" />
 
-      <div className="absolute inset-0 p-4 md:p-6 lg:p-8 flex flex-col justify-end text-white">
-        <div className="space-y-1 md:space-y-2">
-          {tour.subtitle && <p className="text-xs md:text-sm font-semibold uppercase opacity-80">{tour.subtitle}</p>}
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">{tour.title}</h3>
-          <p className="text-sm md:text-base opacity-90 line-clamp-3">{tour.description}</p>
+      <div className="absolute inset-0 p-5 md:p-6 lg:p-8 flex flex-col justify-end text-white">
+        <div className="mb-4 flex items-center justify-between gap-3">
+          {tour.subtitle && <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-white/80">{tour.subtitle}</span>}
+          <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-white/80">Popular</span>
+        </div>
+
+        <div className="space-y-3">
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold leading-tight">{tour.title}</h3>
+          <p className="text-sm md:text-base text-white/90 line-clamp-3">{tour.description}</p>
+        </div>
+
+        <div className="mt-5 flex flex-wrap gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/90">Best Seller</span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/90">3-7 days</span>
         </div>
       </div>
     </div>
